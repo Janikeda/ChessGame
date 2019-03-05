@@ -44,14 +44,15 @@ public class Board {
             boardArray[originX][originY] = null;
 
             if (turn == 0) {
-                if (figureToDelete != null) {
-                    System.out.println("Была убита фигура " + figureToDelete);
-                    blackPieces.remove(figureToDelete);
-                }
-            } else if (figureToDelete != null) {
-                System.out.println("Была убита фигура " + figureToDelete);
+                blackPieces.remove(figureToDelete);
+            } else {
                 whitePieces.remove(figureToDelete);
             }
+
+            if (figureToDelete != null) {
+                System.out.println("Была убита фигура " + figureToDelete);
+            }
+
             System.out.println("Фигура " + figure + " сделала ход. " +
                     "Из клетки " + "x = " + originX + ", y = " + originY + ". На клетку " + "x = " + currentPosition.getX() + ", y = " + currentPosition.getY());
             changeTurn();

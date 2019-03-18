@@ -1,11 +1,10 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /* Слон (офицер) */
@@ -15,6 +14,7 @@ public class Bishop extends Figure {
         this.currPosition = currPosition;
         this.color = color;
         this.type = Type.BISHOP;
+        this.image = (isWhite() ? "whiteBishop.png" : "blackBishop.png");
     }
 
     @Override

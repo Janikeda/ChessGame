@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import model.*;
 
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static Game.Color.BLACK;
-import static Game.Color.WHITE;
+import static game.Color.BLACK;
+import static game.Color.WHITE;
 
 public class Board {
 
@@ -16,16 +16,14 @@ public class Board {
     private List<Figure> whitePieces = new ArrayList<>(16);
     private List<Figure> blackPieces = new ArrayList<>(16);
     private boolean isEnd;
-    /* 0 - ход белых, 1 - ход черных*/
-    private int turn;
-
 
     public Board() {
         boardArray = new Figure[SIZE][SIZE];
         setPieces();
+        System.out.println("Старт новой игры!");
     }
 
-    public void move(Figure figure, Position to) {
+    public String move(Figure figure, Position to) {
         Position currentPosition = figure.getCurrPosition();
 
         int originX = currentPosition.getX();
@@ -38,24 +36,26 @@ public class Board {
 
         if (figureToDelete instanceof King) {
             isEnd = true;
-            System.out.println("Игра окончена. Король " + figureToDelete + " убит!" + " Последний ход сделала : " + figure);
+            String msg = "Игра окончена. Король " + figureToDelete + " убит!" + " Последний ход сделала: " + figure;
+            System.out.println(msg);
+            return msg;
         } else {
             boardArray[currentPosition.getX()][currentPosition.getY()] = figure;
             boardArray[originX][originY] = null;
 
-            if (turn == 0) {
+            if (figure.isWhite()) {
                 blackPieces.remove(figureToDelete);
             } else {
                 whitePieces.remove(figureToDelete);
             }
 
+            System.out.println("Фигура " + figure + " сделала ход. " +
+                    "Из клетки " + "x = " + originX + ", y = " + originY + ". На клетку " + "x = " + currentPosition.getX() + ", y = " + currentPosition.getY());
+
             if (figureToDelete != null) {
                 System.out.println("Была убита фигура " + figureToDelete);
             }
-
-            System.out.println("Фигура " + figure + " сделала ход. " +
-                    "Из клетки " + "x = " + originX + ", y = " + originY + ". На клетку " + "x = " + currentPosition.getX() + ", y = " + currentPosition.getY());
-            changeTurn();
+            return "";
         }
     }
 
@@ -126,17 +126,11 @@ public class Board {
         }
     }
 
-    public Figure getRandomFigure() {
+    public Figure getRandomFigure(Color color) {
         Random random = new Random();
-        if (turn == 0) {
+        if (color.equals(WHITE)) {
             return whitePieces.get(random.nextInt(whitePieces.size()));
         } else return blackPieces.get(random.nextInt(blackPieces.size()));
-    }
-
-    private void changeTurn() {
-        if (turn == 0) {
-            turn = 1;
-        } else turn = 0;
     }
 
     public boolean isEnd() {
@@ -147,15 +141,15 @@ public class Board {
         return (0 <= position.getX() && position.getX() < SIZE) && (0 <= position.getY() && position.getY() < SIZE);
     }
 
-    public int getTurn() {
-        return turn;
-    }
-
     public List<Figure> getWhitePieces() {
         return whitePieces;
     }
 
     public List<Figure> getBlackPieces() {
         return blackPieces;
+    }
+
+    public Figure[][] getBoardArray() {
+        return boardArray;
     }
 }

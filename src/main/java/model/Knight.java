@@ -1,8 +1,8 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ public class Knight extends Figure {
         this.currPosition = currPosition;
         this.color = color;
         this.type = Type.KNIGHT;
+        this.image = (isWhite() ? "whiteKnight.png" : "blackKnight.png");
     }
 
     @Override

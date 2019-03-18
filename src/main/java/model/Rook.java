@@ -1,11 +1,10 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /* Ладья */
@@ -15,6 +14,7 @@ public class Rook extends Figure {
         this.currPosition = currPosition;
         this.color = color;
         this.type = Type.ROOK;
+        this.image = (isWhite() ? "whiteRook.png" : "blackRook.png");
     }
 
     @Override

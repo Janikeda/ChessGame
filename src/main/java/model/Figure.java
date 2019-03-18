@@ -1,8 +1,8 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ public abstract class Figure {
     protected Color color;
 
     protected Type type;
+
+    protected String image;
 
 
     public abstract List<Position> possibleMoves(Board board, Position pos);
@@ -26,6 +28,10 @@ public abstract class Figure {
 
     public boolean isOpponent(Figure figure) {
         return figure != null && isWhite() != figure.isWhite();
+    }
+
+    public String getImage() {
+        return image;
     }
 
     @Override

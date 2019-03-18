@@ -1,8 +1,8 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ public class King extends Figure {
         this.currPosition = currPosition;
         this.color = color;
         this.type = Type.KING;
+        this.image = (isWhite() ? "whiteKing.png" : "blackKing.png");
     }
 
     @Override
@@ -32,8 +33,8 @@ public class King extends Figure {
         return possibleMoves;
     }
 
-    private boolean isSafe(Board board, Position pos) {
-        if (board.getTurn() == 0) {
+    private boolean isSafe(Board board, Position pos, Color color) {
+        if (color.equals(Color.WHITE)) {
             for (Figure figure : board.getBlackPieces()) {
                 if (figure != null && !figure.possibleMoves(board, figure.getCurrPosition()).contains(pos)) {
                     return false;

@@ -1,8 +1,8 @@
 package model;
 
-import Game.Board;
-import Game.Color;
-import Game.Position;
+import game.Board;
+import game.Color;
+import game.Position;
 
 import java.util.List;
 
@@ -17,6 +17,7 @@ public class Queen extends Figure {
         this.fakeBishop= new Bishop(currPosition, color);
         this.fakeRook = new Rook(currPosition, color);
         this.type = Type.QUEEN;
+        this.image = (isWhite() ? "whiteQueen.png" : "blackQueen.png");
     }
 
     @Override

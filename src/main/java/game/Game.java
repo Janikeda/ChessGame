@@ -1,4 +1,4 @@
-package Game;
+package game;
 
 import model.Figure;
 
@@ -10,13 +10,14 @@ public class Game {
 
     public void gameSession() {
         Board gameBoard = new Board();
+        Color color = Color.WHITE;
 
         while (!gameBoard.isEnd()) {
             List<Position> posFigureMoves = new ArrayList<>();
             Figure figure = null;
 
             while (posFigureMoves.isEmpty()) {
-                figure = gameBoard.getRandomFigure();
+                figure = gameBoard.getRandomFigure(color);
                 posFigureMoves = figure.possibleMoves(gameBoard,figure.getCurrPosition());
             }
 

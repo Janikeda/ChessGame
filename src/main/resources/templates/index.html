@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>CHESS GAME</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" media="screen">
+</head>
+<body>
+<h1>CHESS GAME</h1>
+
+<div th:if="${message}" th:text="${message}" th:class="${message == null}?hide:show"></div>
+
+<div class="chessboard">
+    <!-- 1st -->
+    <div class="white"><img th:if="${figure00 != null}" th:src="@{/images/{image}(image=${figure00.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure01 != null}" th:src="@{/images/{image}(image=${figure01.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure02 != null}" th:src="@{/images/{image}(image=${figure02.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure03 != null}" th:src="@{/images/{image}(image=${figure03.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure04 != null}" th:src="@{/images/{image}(image=${figure04.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure05 != null}" th:src="@{/images/{image}(image=${figure05.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure06 != null}" th:src="@{/images/{image}(image=${figure06.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure07 != null}" th:src="@{/images/{image}(image=${figure07.image})}" alt="">
+    </div>
+    <!-- 2nd -->
+    <div class="black"><img th:if="${figure10 != null}" th:src="@{/images/{image}(image=${figure10.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure11 != null}" th:src="@{/images/{image}(image=${figure11.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure12 != null}" th:src="@{/images/{image}(image=${figure12.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure13 != null}" th:src="@{/images/{image}(image=${figure13.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure14 != null}" th:src="@{/images/{image}(image=${figure14.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure15 != null}" th:src="@{/images/{image}(image=${figure15.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure16 != null}" th:src="@{/images/{image}(image=${figure16.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure17 != null}" th:src="@{/images/{image}(image=${figure17.image})}" alt="">
+    </div>
+    <!-- 3th -->
+    <div class="white"><img th:if="${figure20 != null}" th:src="@{/images/{image}(image=${figure20.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure21 != null}" th:src="@{/images/{image}(image=${figure21.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure22 != null}" th:src="@{/images/{image}(image=${figure22.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure23 != null}" th:src="@{/images/{image}(image=${figure23.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure24 != null}" th:src="@{/images/{image}(image=${figure24.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure25 != null}" th:src="@{/images/{image}(image=${figure25.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure26 != null}" th:src="@{/images/{image}(image=${figure26.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure27 != null}" th:src="@{/images/{image}(image=${figure27.image})}" alt="">
+    </div>
+    <!-- 4st -->
+    <div class="black"><img th:if="${figure30 != null}" th:src="@{/images/{image}(image=${figure30.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure31 != null}" th:src="@{/images/{image}(image=${figure31.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure32 != null}" th:src="@{/images/{image}(image=${figure32.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure33 != null}" th:src="@{/images/{image}(image=${figure33.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure34 != null}" th:src="@{/images/{image}(image=${figure34.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure35 != null}" th:src="@{/images/{image}(image=${figure35.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure36 != null}" th:src="@{/images/{image}(image=${figure36.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure37 != null}" th:src="@{/images/{image}(image=${figure37.image})}" alt="">
+    </div>
+    <!-- 5th -->
+    <div class="white"><img th:if="${figure40 != null}" th:src="@{/images/{image}(image=${figure40.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure41 != null}" th:src="@{/images/{image}(image=${figure41.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure42 != null}" th:src="@{/images/{image}(image=${figure42.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure43 != null}" th:src="@{/images/{image}(image=${figure43.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure44 != null}" th:src="@{/images/{image}(image=${figure44.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure45 != null}" th:src="@{/images/{image}(image=${figure45.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure46 != null}" th:src="@{/images/{image}(image=${figure46.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure47 != null}" th:src="@{/images/{image}(image=${figure47.image})}" alt="">
+    </div>
+    <!-- 6th -->
+    <div class="black"><img th:if="${figure50 != null}" th:src="@{/images/{image}(image=${figure50.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure51 != null}" th:src="@{/images/{image}(image=${figure51.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure52 != null}" th:src="@{/images/{image}(image=${figure52.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure53 != null}" th:src="@{/images/{image}(image=${figure53.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure54 != null}" th:src="@{/images/{image}(image=${figure54.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure55 != null}" th:src="@{/images/{image}(image=${figure55.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure56 != null}" th:src="@{/images/{image}(image=${figure56.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure57 != null}" th:src="@{/images/{image}(image=${figure57.image})}" alt="">
+    </div>
+    <!-- 7th -->
+    <div class="white"><img th:if="${figure60 != null}" th:src="@{/images/{image}(image=${figure60.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure61 != null}" th:src="@{/images/{image}(image=${figure61.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure62 != null}" th:src="@{/images/{image}(image=${figure62.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure63 != null}" th:src="@{/images/{image}(image=${figure63.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure64 != null}" th:src="@{/images/{image}(image=${figure64.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure65 != null}" th:src="@{/images/{image}(image=${figure65.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure66 != null}" th:src="@{/images/{image}(image=${figure66.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure67 != null}" th:src="@{/images/{image}(image=${figure67.image})}" alt="">
+    </div>
+    <!-- 8th -->
+    <div class="black"><img th:if="${figure70 != null}" th:src="@{/images/{image}(image=${figure70.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure71 != null}" th:src="@{/images/{image}(image=${figure71.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure72 != null}" th:src="@{/images/{image}(image=${figure72.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure73 != null}" th:src="@{/images/{image}(image=${figure73.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure74 != null}" th:src="@{/images/{image}(image=${figure74.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure75 != null}" th:src="@{/images/{image}(image=${figure75.image})}" alt="">
+    </div>
+    <div class="black"><img th:if="${figure76 != null}" th:src="@{/images/{image}(image=${figure76.image})}" alt="">
+    </div>
+    <div class="white"><img th:if="${figure77 != null}" th:src="@{/images/{image}(image=${figure77.image})}" alt="">
+    </div>
+</div>
+
+<form action="#" th:action="@{'/makeMoveAction'}" th:method="post">
+    <button type="submit" class="green button_nbb">Make a Move</button>
+</form>
+
+<form action="#" th:action="@{'/clearResults'}" th:method="post">
+    <button type="submit" class="red button_nbb">Start New Game</button>
+</form>
+</body>
+</html>
